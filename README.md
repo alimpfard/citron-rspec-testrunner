@@ -14,6 +14,7 @@ describe Some stuff do: {:it
                 should raiseError: ArgumentError.
         }.
     }.
+}.
 ```
 
 All of this is just one `import Test: 'describe'` away!
