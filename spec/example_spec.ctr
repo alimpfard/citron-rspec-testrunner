@@ -1,0 +1,37 @@
+import 
+    Test: 'describe'.
+
+describe Some examples do: {:it
+    it can pass do: {
+        (1 + 1) should = 2.     
+    }.
+
+    it can fail do: {
+        (1 + 1) should = 3.     
+    }.
+
+    it can pass after failing do: {
+        (1 + 2) should = 3. 
+    }.
+    
+    it can catch errors do: {
+        { thisBlock error: AssertionError['test']. }
+            should raiseError: AssertionError.
+    }.
+}.
+
+
+var User is Object cnew: {
+    on: 'initWithName:' do: {:name
+        name => name.
+    }.
+    
+    on: 'name' do: { ^my name. }.
+}.
+
+describe User do: {:it
+    it knows its own name do: {
+        var user is User new initWithName: 'Alice'.
+        user name should = 'Alice'.
+    }.
+}.
