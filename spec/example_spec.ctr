@@ -20,6 +20,31 @@ describe Some examples do: {:it
     }.
 }.
 
+describe let do: {:it:let
+    let[Reflect thisContext] constant-ref { Dice rawRandomNumber }.
+
+    it has some value do: {
+        constant-ref should not = Nil.
+    }.
+    it ~ 'is persistent across references' do: {
+        constant-ref should = constant-ref.
+    }.
+}.
+
+describe output do: {:it:let
+    it can assert about outputs do: {
+        { Pen writeln: 'Testing'. }
+            should output: 'Testing\n'.
+    }.
+    
+    let[Reflect thisContext] somefile { File new: 'test', open: 'r+' }.
+
+    it can fail! do: {
+        { somefile write: 'some test'. }
+            should output: 'not this one' to: somefile.
+    }.
+}.
+
 
 var User is Object cnew: {
     on: 'initWithName:' do: {:name
