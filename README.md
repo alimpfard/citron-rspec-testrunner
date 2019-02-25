@@ -2,6 +2,8 @@
 
 A minimal old-style RSpec-like test runner
 
+# Merged into [the standard library](https://github.com/alimpfard/citron/tree/master/Library/Test)
+
 ```
 describe Some stuff do: {:it
     it can maybe fail do: {
